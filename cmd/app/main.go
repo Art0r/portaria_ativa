@@ -7,7 +7,7 @@ import (
 	"time"
 
 	"github.com/Art0r/portaria_ativa/internal"
-	web "github.com/Art0r/portaria_ativa/internal/web/home"
+	api "github.com/Art0r/portaria_ativa/internal/api/home"
 	"github.com/gorilla/mux"
 )
 
@@ -15,7 +15,7 @@ func main() {
 
 	r := mux.NewRouter()
 
-	web.SetHomeRoutes(r)
+	api.SetHomeRoutes(r)
 
 	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir(internal.AppConfig.StaticDir))))
 
